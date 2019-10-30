@@ -146,11 +146,13 @@
         direction = _ref.direction,
         top = _ref.top,
         left = _ref.left,
-        key = _ref.key;
-    var imgStyle = {
+        key = _ref.key,
+        style = _ref.style;
+
+    var imgStyle = _objectSpread({
       margin: margin,
       display: 'block'
-    };
+    }, style);
 
     if (direction === 'column') {
       imgStyle.position = 'absolute';
@@ -181,7 +183,8 @@
     alt: PropTypes.string,
     title: PropTypes.string,
     srcSet: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-    sizes: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+    sizes: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    style: PropTypes.object
   });
   Photo.propTypes = {
     index: PropTypes.number.isRequired,
@@ -518,7 +521,7 @@
     return round(rowAR / 1.5) + 8;
   };
 
-  var useIsomorphicLayoutEffect = typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
+  var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
   var Gallery = React__default.memo(function Gallery(_ref) {
     var photos = _ref.photos,
         onClick = _ref.onClick,
